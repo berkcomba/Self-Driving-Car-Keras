@@ -6,19 +6,19 @@ Self driving car keras dave 2 CNN
 
 # Summary
 
-CNNs is widely using in self driving cars. Nvidia's Dave2, the model that using for autonome cars, one of the easiest way to build a Self driving car. In this project, we implement dave 2 to Keras and predict steering angle. 
+CNNs is widely using to build self-driving cars. Nvidia's Dave2, the model that using for autonomous cars, one of the easiest ways to build a Self-driving car. In this project, we implement Dave-2 to Keras and predict steering angle. 
 
 # The Model
 
 ![alt img](./dave2.png)<br>
 
-Dave-2 model using road images as inputs and predict the vehicle controls (steering angle) as outputs. You can look at full paper **[HERE](https://arxiv.org/pdf/1604.07316.pdf)**
+Dave-2 model using road images as inputs and predict the vehicle controls (steering angle) as outputs. You can find the full paper **[HERE](https://arxiv.org/pdf/1604.07316.pdf)**
 
 # Dataset
 
 ![alt img](./data_sample.png)<br>
 
-Dataset consist of 45,406 images that get from a camcorder in real car ride. It made by Sully Chen. You can download **[HERE](https://drive.google.com/file/d/0B-KJCaaF7elleG1RbzVPZWV4Tlk/view)**. If you want to train your own model rather than using pretrained, just put the images to data/ folder.
+Dataset consists of 45,406 images that get from a camcorder in a real car ride. It was made by Sully Chen. You can download **[HERE](https://drive.google.com/file/d/0B-KJCaaF7elleG1RbzVPZWV4Tlk/view)**. If you want to train your own model rather than using pretrained, just put the images to a data/ folder.
 
 # How To Run
 
