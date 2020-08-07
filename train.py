@@ -44,25 +44,25 @@ def defineModel():
     model = Sequential()
 
     # 5x5 Convolutional layers with stride of 2x2
-    model.add(Conv2D(24, (5, 5), strides=(2, 2) ,name='conv1',activation='elu',input_shape=input_shape))
-    model.add(Conv2D(36, (5, 5), strides=(2, 2) ,name='conv2',activation='elu'))
-    model.add(Conv2D(48, (5, 5), strides=(2, 2) ,name='conv3',activation='elu'))
+    model.add(Conv2D(24, (5, 5), strides=(2, 2),activation='elu',input_shape=input_shape))
+    model.add(Conv2D(36, (5, 5), strides=(2, 2),activation='elu'))
+    model.add(Conv2D(48, (5, 5), strides=(2, 2),activation='elu'))
     
     # 3x3 Convolutional layers with stride of 1x1
-    model.add(Conv2D(64, (3, 3), name='conv4',activation='elu'))
-    model.add(Conv2D(64, (3, 3), name='conv5',activation='elu'))
+    model.add(Conv2D(64, (3, 3),activation='elu'))
+    model.add(Conv2D(64, (3, 3),activation='elu'))
     
     # Flatten before passing to the fully connected layers
     model.add(Flatten())
     # Three fully connected layers
-    model.add(Dense(100, name='fc1',activation='elu'))
-    model.add(Dropout(.25, name='do1'))
-    model.add(Dense(50, name='fc2',activation='elu'))
-    model.add(Dropout(.25, name='do2'))
-    model.add(Dense(10, name='fc3',activation='elu'))
-    model.add(Dropout(.25,name='do3'))
+    model.add(Dense(100,activation='elu'))
+    model.add(Dropout(.25))
+    model.add(Dense(50,activation='elu'))
+    model.add(Dropout(.25))
+    model.add(Dense(10,activation='elu'))
+    model.add(Dropout(.25))
     
-    # Output layer with tanh activation 
+    # Output layer with linear activation 
     model.add(Dense(1,activation="linear"))
     
     return model
@@ -75,7 +75,7 @@ angle=[]
 f= open("data.txt")                                 #read steering angles from disk and preprocess
 data = f.read()
 data = data.split()
-for i in data:                                      #if the node end with ".jpg" ignore it. It's for collecting angles
+for i in data:                                      #if the node end with ".jpg" ignore it. what we need is only angles
     if i[-1]=='g':
         pass
     else:
@@ -93,7 +93,7 @@ ids.sort()
 
 
 #train and test set ratio. We create two dictionary for data batch generator. 
-#partition consist of two list that holds the train and validation image ids, labels hold them angles..
+#partition consist of two list that holds the train and validation image ids. labels hold the angles..
 partition={'train':ids[:int(len(ids)*.8)],'validation':ids[-int(len(ids)*.2):]}
 labels={}
 for i in partition["train"]:
@@ -119,7 +119,7 @@ validation_generator = DataGenerator(partition["validation"], labels, **params)
 model=defineModel()
 model.compile(optimizer='adam', loss="mse")
     
-#train it for 4 epochs
+#train it for 10 epochs
 model.fit_generator(generator=training_generator,
                     epochs=10,   
                     validation_data=validation_generator)    
