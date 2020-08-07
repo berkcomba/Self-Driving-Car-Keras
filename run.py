@@ -45,15 +45,8 @@ model = load_model("model.h5")                      #import our model
         
 
 sahin_direksiyon = cv2.imread("sahin_direksiyon_simiti.png") #read steering image
-sahin_konsol = cv2.imread("sahin_on_konsol_2..jpg") #read steering image
+sahin_konsol = cv2.imread("sahin_on_konsol_2..jpg") #frontside image a car. 
 
-
-#original steering image is bigger then we wanted. 
-#percent by which the image is resized
-scale_percent = 25
-#calculate the 25 percent of original dimensions
-width = int(sahin_direksiyon.shape[1] * scale_percent / 100 )
-height = int(sahin_direksiyon.shape[0] * scale_percent / 100) 
 #resize it
 sahin_direksiyon=cv2.resize(sahin_direksiyon, (270,210))
    #get it's shape
@@ -86,7 +79,7 @@ for i in test_ids:
     smooth_angle += 0.2 * pow(abs((result - smooth_angle)), 2.0/3.0)*(result - smooth_angle)/abs(result-smooth_angle)
     M=cv2.getRotationMatrix2D((cols/2,rows/2),smooth_angle,1)
     dst= cv2.warpAffine(sahin_direksiyon, M, (cols,rows))
-    sahin_konsol[20:230,30:300]=dst
+    #sahin_konsol[20:230,30:300]=dst #If you want to show frontside of the car just use this and replace dst with sahin_konsol in the next line.
 
     cv2.imshow("Sahin Wheel",dst)
     #small delay for Optimus Prime level computers
