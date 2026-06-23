@@ -1,48 +1,41 @@
 # Self Driving Car
 
-Self driving car keras dave 2 CNN
+Self-driving car with Keras DAVE-2 CNN
 
 ![alt img](./selfcar.gif)<br>
 
 # Summary
 
-CNNs is widely using to build self-driving cars. Nvidia's Dave2, the model that using for autonomous cars, one of the easiest ways to build a Self-driving car. In this project, we implement Dave-2 to Keras and predict steering angle. 
+CNNs are widely used to build self-driving car systems. NVIDIA’s DAVE-2 model is one of the simplest and most effective approaches for autonomous driving tasks. In this project, we implement DAVE-2 with Keras and use it to predict the steering angle of a vehicle.
 
 # The Model
 
 ![alt img](./dave2.png)<br>
 
-Dave-2 model using road images as inputs and predict the vehicle controls (steering angle) as outputs. You can find the full paper **[HERE](https://arxiv.org/pdf/1604.07316.pdf)**
+The DAVE-2 model takes road images as input and predicts vehicle control outputs, such as the steering angle. You can find the full paper **[HERE](https://arxiv.org/pdf/1604.07316.pdf)**.
 
 # Dataset
 
 ![alt img](./data_sample.png)<br>
 
-Dataset consists of 45,406 images that get from a camcorder in a real car ride. It was made by Sully Chen. You can download **[HERE](https://drive.google.com/file/d/0B-KJCaaF7elleG1RbzVPZWV4Tlk/view)**. If you want to train your own model rather than using pretrained, just put the images to a data/ folder.
+The dataset consists of 45,406 images captured by a camcorder during a real car ride. It was created by Sully Chen. You can download it **[HERE](https://drive.google.com/file/d/0B-KJCaaF7elleG1RbzVPZWV4Tlk/view)**. If you want to train your own model instead of using the pretrained one, place the images inside a `data/` folder.
 
 # How To Run
 
-You can either use pretrained model or train your own. 
+You can either use the pretrained model or train your own.
 
-Note: Because of the largeness of the dataset, you may need high compute resources for training.
+Note: Because the dataset is large, training may require high computational resources.
 
-To Train: 
+To train:
  `python3 train.py`
 
-To run test set: 
+To run on the test set:
  `python3 run.py`
 
-# Related Works -Source
+# Related Works - Source
 
 -https://arxiv.org/pdf/1604.07316.pdf
 
 -https://github.com/adityaguptai/Self-Driving-Car-
 
 -https://github.com/tech-rules/DAVE2-Keras
-
-
-
-
-
-
-
